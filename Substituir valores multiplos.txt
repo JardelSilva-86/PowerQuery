@@ -1,13 +1,13 @@
 # Como substituir vários itens na mesma coluna, exemplo:
 Coluna = Transportadora
-Valores = (N CNPJ1, N CNPJ2, N CNPJ3, N CNPJ4...)
+Valores = (CNPJ1, CNPJ2, CNPJ3, CNPJ4...)
 Substituir por = (Filial 1, Filial 2, Filial 3, Filial 4...)
 
 Código no Power Query
 = Table.ReplaceValue(#"PassoAnterior", each [Transportadora], 
-      each if [Transportadora] = "N CNPJ1" then "Filial 1" else 	
-      if [Transportadora] = "N CNPJ1 " then "Filial 1 " else
-      if [Transportadora] = "N CNPJ1 " then "Filial 1 " else
-      if [transportadora] = "N CNPJ1 " then "Filial 1 " else
+      each if [Transportadora] = "CNPJ1" then "Filial 1" else 	
+      if [Transportadora] = "CNPJ1" then "Filial 2" else
+      if [Transportadora] = "CNPJ1" then "Filial 3" else
+      if [transportadora] = "CNPJ1" then "Filial 4" else
       "OutrosValores",
       Replacer.ReplaceText,{"Transportadora"}
